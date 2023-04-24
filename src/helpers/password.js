@@ -11,6 +11,12 @@ const hashPassword = (password) =>{
     return argon2.hash(password, hashingOptions)
 }
 
+const verifyPassword = (hashedPassword, password) =>{
+  return argon2.verify(hashedPassword, password)
+}
+
+
 module.exports = {
-    hashPassword
+    hashPassword,
+    verifyPassword
 }

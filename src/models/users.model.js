@@ -12,7 +12,17 @@ const findOneEmail = (email) => {
     .then(([results]) => results);
 };
 
+const changePassword = (email, hashedPassword) => {
+  return database
+    .query("UPDATE users SET hashedPassword = ? WHERE email = ?", [
+      hashedPassword,
+      email,
+    ])
+    .then(([results]) => results);
+};
+
 module.exports = {
   create,
   findOneEmail,
+  changePassword,
 };
