@@ -10,8 +10,11 @@ authRouter.post("/sign-up", createNewUser, Users.createUser)
 //* login with an user, endpoint: ..../auth/login
 authRouter.post("/login", checkEmail ,Users.login)
 
-//* login with an user, endpoint: ..../auth/change-password
-authRouter.post("/change-password", verifyToken ,Users.changePassword)
+//* change password, endpoint: ..../auth/change-password
+authRouter.post("/change-password", verifyToken, Users.changePassword)
+
+//* forget password, endpoint: ..../auth/forget-password
+authRouter.post("/forget-password", checkEmail, Users.forgetPassword)
 
 
 module.exports = authRouter
